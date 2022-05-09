@@ -1,0 +1,7 @@
+GAME MARIO
+
+- có 3 màn chơi
+- màn cuối cùng là cho nhân vật chính chiến đâu với boss
+- thời gian mỗi màn chơi khoản 5 phút
+- thiết kê dựa trên cốt truyện Mario truyền thống
+- tích hợp chơi trên nhiều thiết bị

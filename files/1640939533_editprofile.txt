@@ -1,0 +1,137 @@
+@model PTHShopping.Models.KhachHang
+@using PTHShopping.Helper;
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+@{
+    string saveavatar = string.Empty;
+    
+}
+
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="IdkhachHang" />
+    <table width="80%%">
+        <tr>
+            <td>
+                
+                <div class="form-group" style="text-align: center; vertical-align: middle;">
+                    <img style="width:150px;height:150px; object-fit:cover; border-radius:50%;" id="avatar" src="/@ViewBag.srcavatar" /> <br />
+                    <br />
+                    <label asp-for="Avatar" class="control-label"></label>
+                    <input name="file" id="file" type="file" style="margin-left:20px;" onchange="readURL(this);" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Họ tên</label>
+                    <input asp-for="HoTen" class="form-control" />
+                    <span asp-validation-for="HoTen" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Sinh nhật</label>
+                    <input asp-for="SinhNhat" class="form-control" />
+                    <span asp-validation-for="SinhNhat" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Giới tính</label>
+                    <select asp-for="Giotinh" class="form-control">
+                        <option value="True">Nam</option>
+                        <option value="False">Nữ</option>
+                    </select>
+                    <span asp-validation-for="Giotinh" class="text-danger"></span>
+                </div>
+            </td>
+        </tr>
+        <tr><tr/>
+        <tr>
+            <td>
+                <div class="form-group" hidden>
+                    <label asp-for="Avatar" class="control-label"></label>
+                    <input asp-for="Avatar" class="form-control" />
+                    <span asp-validation-for="Avatar" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Số điện thoại</label>
+                    <input asp-for="Sdt" class="form-control" />
+                    <span asp-validation-for="Sdt" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Địa chỉ</label>
+                    <input asp-for="DiaChi" class="form-control" />
+                    <span asp-validation-for="DiaChi" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Ngày tạo</label>
+                    <input asp-for="NgayTao" class="form-control" />
+                    <span asp-validation-for="NgayTao" class="text-danger"></span>
+                </div>
+                <div class="form-group" hidden>
+                    <label asp-for="MatKhau" class="control-label"></label>
+                    <input asp-for="MatKhau" class="form-control" />
+                    <span asp-validation-for="MatKhau" class="text-danger"></span>
+                </div>
+                <div class="form-group" hidden>
+                    <label asp-for="Salt" class="control-label"></label>
+                    <input asp-for="Salt" class="form-control" />
+                    <span asp-validation-for="Salt" class="text-danger"></span>
+                </div>
+                <div class="form-group" hidden>
+                    <label asp-for="LastLogin" class="control-label"></label>
+                    <input asp-for="LastLogin" class="form-control" />
+                    <span asp-validation-for="LastLogin" class="text-danger"></span>
+                </div>
+                <div class="form-group" hidden>
+                    <label asp-for="Active" class="control-label"></label>
+                    <input asp-for="Active" class="form-control" />
+                    <span asp-validation-for="Active" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Đổi mật khẩu?</label> <br />
+                    <label class="control-label">Nhập mật khẩu cũ</label>
+                    <input class="form-control" style="margin-bottom:20px;" type="password" name="pass0" />
+                    <label class="control-label">Nhập mật khẩu mới</label>
+                    <input class="form-control" style="margin-bottom:20px;" type="password" name="pass1" />
+                    <label class="control-label">Nhập lại mật khẩu mới</label>
+                    <input class="form-control" type="password" name="pass2" />
+                    @if (ViewBag.saimk != null)
+                    {
+                        <div style="color:red;">@ViewBag.saimk</div>
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+            
+    <div class="form-group">
+        <input type="submit" value="Lưu" class="btn btn-primary" />
+    </div>
+</form>
+
+
+<script type="text/javascript">
+    var a = document.getElementById("avatar");
+    function readURL(input) {
+        if (input.files) {
+            var reader = new FileReader();
+            reader.readAsDataURL(input.files[0]);
+            reader.onload = (e) => {
+                a.src = e.target.result;
+            }
+        }
+    }
+</script>
+
+
+<div>
+    <a asp-action="Index">Trở lại</a>
+</div>
+

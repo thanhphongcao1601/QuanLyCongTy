@@ -1,0 +1,6 @@
+user: id, họ tên, tên đăng nhập, mk, sđt, ngày sinh, avatar, địa chỉ, chức vụ, id phòng ban, số ngày nghỉ
+phòng ban: tên phòng ban, id phòng ban, id trưởng phòng
+nghỉ phép: id nghỉ phép, ngày bắt đầu, id  user, lý do nghỉ, ngày kết thúc
+quản lý: cv: iD công việc, tên công việc, id trưởng phòng, id nhân viên(user), trạng thái công việc, nội dung công việc, tiêu đề công việc, tiến độ, deadline, file submit, file giao
+lịch sử: id lịch sử, id task, id user, id trưởng phòng, nộp dung, tiêu đề, file
+
